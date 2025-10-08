@@ -1,0 +1,304 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPx9h0m7xjQexpKnqTUFXbD",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/A-varshith/AI-ASSISTED-CODING-LAB/blob/main/08-10-11.3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "OOtNUKHsGY1S"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TASK 1:"
+      ],
+      "metadata": {
+        "id": "bk4ZeXQ_GYMm"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 10,
+      "metadata": {
+        "id": "oF7DWLs3-Vbc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "0cb71c9a-aee2-4b33-a189-476868bb69a7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2\n",
+            "2\n",
+            "False\n"
+          ]
+        }
+      ],
+      "source": [
+        "class Stack:\n",
+        "    def __init__(self):\n",
+        "        self.items = []\n",
+        "\n",
+        "    def push(self, item):\n",
+        "        self.items.append(item)\n",
+        "\n",
+        "    def pop(self):\n",
+        "        if not self.is_empty():\n",
+        "            return self.items.pop()\n",
+        "        else:\n",
+        "            return \"Stack is empty\"\n",
+        "\n",
+        "    def peek(self):\n",
+        "        if not self.is_empty():\n",
+        "            return self.items[-1]\n",
+        "        else:\n",
+        "            return \"Stack is empty\"\n",
+        "\n",
+        "    def is_empty(self):\n",
+        "        return len(self.items) == 0\n",
+        "\n",
+        "# Example usage:\n",
+        "stack = Stack()\n",
+        "stack.push(1)\n",
+        "stack.push(2)\n",
+        "print(stack.peek())\n",
+        "print(stack.pop())\n",
+        "print(stack.is_empty())"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TASK 2:"
+      ],
+      "metadata": {
+        "id": "SK-ZWnnVGscI"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Queue:\n",
+        "    def __init__(self):\n",
+        "        self.items = []\n",
+        "\n",
+        "    def enqueue(self, item):\n",
+        "        self.items.insert(0, item)\n",
+        "\n",
+        "    def dequeue(self):\n",
+        "        if not self.is_empty():\n",
+        "            return self.items.pop()\n",
+        "        else:\n",
+        "            return \"Queue is empty\"\n",
+        "\n",
+        "    def is_empty(self):\n",
+        "        return len(self.items) == 0\n",
+        "\n",
+        "# Example usage:\n",
+        "queue = Queue()\n",
+        "queue.enqueue(1)\n",
+        "queue.enqueue(2)\n",
+        "print(queue.dequeue())\n",
+        "print(queue.is_empty())"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Gl8uD2QtGvMX",
+        "outputId": "1d69355a-2365-4b32-9e9d-989b836cc75e"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TASK 3:"
+      ],
+      "metadata": {
+        "id": "hzCeWuseHL7T"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Node:\n",
+        "    def __init__(self, data):\n",
+        "        self.data = data\n",
+        "        self.next = None\n",
+        "\n",
+        "class SinglyLinkedList:\n",
+        "    def __init__(self):\n",
+        "        self.head = None\n",
+        "\n",
+        "    def insert_at_beginning(self, data):\n",
+        "        new_node = Node(data)\n",
+        "        new_node.next = self.head\n",
+        "        self.head = new_node\n",
+        "\n",
+        "    def insert_at_end(self, data):\n",
+        "        new_node = Node(data)\n",
+        "        if self.head is None:\n",
+        "            self.head = new_node\n",
+        "            return\n",
+        "        last = self.head\n",
+        "        while (last.next):\n",
+        "            last = last.next\n",
+        "        last.next = new_node\n",
+        "\n",
+        "    def display(self):\n",
+        "        elements = []\n",
+        "        current = self.head\n",
+        "        while current:\n",
+        "            elements.append(current.data)\n",
+        "            current = current.next\n",
+        "        print(elements)\n",
+        "\n",
+        "# Example usage:\n",
+        "linked_list = SinglyLinkedList()\n",
+        "linked_list.insert_at_end(1)\n",
+        "linked_list.insert_at_beginning(0)\n",
+        "linked_list.insert_at_end(2)\n",
+        "linked_list.display()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RGN37CVDHPJi",
+        "outputId": "95d83d53-71aa-40dd-d015-a7d4087a96bb"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0, 1, 2]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "TASK 4:"
+      ],
+      "metadata": {
+        "id": "14XNAyBqHz8j"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Node:\n",
+        "    def __init__(self, key):\n",
+        "        self.left = None\n",
+        "        self.right = None\n",
+        "        self.val = key\n",
+        "\n",
+        "class BST:\n",
+        "    def __init__(self):\n",
+        "        self.root = None\n",
+        "\n",
+        "    def insert(self, key):\n",
+        "        if self.root is None:\n",
+        "            self.root = Node(key)\n",
+        "        else:\n",
+        "            self._insert(self.root, key)\n",
+        "\n",
+        "    def _insert(self, root, key):\n",
+        "        if key < root.val:\n",
+        "            if root.left is None:\n",
+        "                root.left = Node(key)\n",
+        "            else:\n",
+        "                self._insert(root.left, key)\n",
+        "        else:\n",
+        "            if root.right is None:\n",
+        "                root.right = Node(key)\n",
+        "            else:\n",
+        "                self._insert(root.right, key)\n",
+        "\n",
+        "    def inorder_traversal(self):\n",
+        "        elements = []\n",
+        "        self._inorder_traversal(self.root, elements)\n",
+        "        print(elements)\n",
+        "\n",
+        "    def _inorder_traversal(self, root, elements):\n",
+        "        if root:\n",
+        "            self._inorder_traversal(root.left, elements)\n",
+        "            elements.append(root.val)\n",
+        "            self._inorder_traversal(root.right, elements)\n",
+        "\n",
+        "# Example usage:\n",
+        "bst = BST()\n",
+        "bst.insert(50)\n",
+        "bst.insert(30)\n",
+        "bst.insert(20)\n",
+        "bst.insert(40)\n",
+        "bst.insert(70)\n",
+        "bst.insert(60)\n",
+        "bst.insert(80)\n",
+        "bst.inorder_traversal()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "lYlP4uk5H2Mz",
+        "outputId": "fa295f70-80c6-4def-9f1a-9815948fabca"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[20, 30, 40, 50, 60, 70, 80]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
