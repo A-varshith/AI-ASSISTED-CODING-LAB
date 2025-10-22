@@ -1,0 +1,301 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPUHL4fX31T1VlfRjewe/HL",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/A-varshith/AI-ASSISTED-CODING-LAB/blob/main/Assignment%2012.3\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#1 task"
+      ],
+      "metadata": {
+        "id": "Tt4g61aFJ2GJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jOMQ292j-Zzn",
+        "outputId": "da5a0a22-90d8-4c09-9967-3693b0949ae9"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Value 18 found at index 3\n",
+            "Value 99 not found in the list\n"
+          ]
+        }
+      ],
+      "source": [
+        "def linear_search(data, value):\n",
+        "  \"\"\"\n",
+        "  Performs a linear search on a list to find the index of a given value.\n",
+        "\n",
+        "  Args:\n",
+        "    data: The list to search within.\n",
+        "    value: The value to search for.\n",
+        "\n",
+        "  Returns:\n",
+        "    The index of the value in the list if found, otherwise -1.\n",
+        "  \"\"\"\n",
+        "  for index, item in enumerate(data):\n",
+        "    if item == value:\n",
+        "      return index\n",
+        "  return -1\n",
+        "\n",
+        "# Example usage:\n",
+        "my_list = [10, 25, 3, 18, 7, 42]\n",
+        "search_value = 18\n",
+        "index = linear_search(my_list, search_value)\n",
+        "\n",
+        "if index != -1:\n",
+        "  print(f\"Value {search_value} found at index {index}\")\n",
+        "else:\n",
+        "  print(f\"Value {search_value} not found in the list\")\n",
+        "\n",
+        "search_value = 99\n",
+        "index = linear_search(my_list, search_value)\n",
+        "\n",
+        "if index != -1:\n",
+        "  print(f\"Value {search_value} found at index {index}\")\n",
+        "else:\n",
+        "  print(f\"Value {search_value} not found in the list\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "DnXnrmq9IinD"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#2 task"
+      ],
+      "metadata": {
+        "id": "MI7ti3BgJ5V9"
+      }
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4d919999",
+        "outputId": "e4724deb-81b0-45e5-805e-ffc9a5fe3bad"
+      },
+      "source": [
+        "def bubble_sort(data):\n",
+        "  \"\"\"\n",
+        "  Sorts a list in ascending order using the Bubble Sort algorithm.\n",
+        "\n",
+        "  Args:\n",
+        "    data: The list to be sorted.\n",
+        "  \"\"\"\n",
+        "  n = len(data)\n",
+        "  for i in range(n):\n",
+        "    # Last i elements are already in place\n",
+        "    for j in range(0, n - i - 1):\n",
+        "      # Traverse the list from 0 to n-i-1\n",
+        "      # Swap if the element found is greater than the next element\n",
+        "      if data[j] > data[j + 1]:\n",
+        "        data[j], data[j + 1] = data[j + 1], data[j]\n",
+        "\n",
+        "# Example usage:\n",
+        "my_list = [64, 34, 25, 12, 22, 11, 90]\n",
+        "bubble_sort(my_list)\n",
+        "\n",
+        "print(\"Sorted array is:\")\n",
+        "print(my_list)"
+      ],
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sorted array is:\n",
+            "[11, 12, 22, 25, 34, 64, 90]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#4 task"
+      ],
+      "metadata": {
+        "id": "JPBWZZtwJ90v"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy\n",
+        "\n",
+        "# Define the variable and the function\n",
+        "x = sympy.Symbol('x')\n",
+        "f = 2*x**3 + 4*x + 5\n",
+        "\n",
+        "# Find the derivative of the function\n",
+        "f_prime = sympy.diff(f, x)\n",
+        "\n",
+        "# Find the critical points by setting the derivative to zero\n",
+        "critical_points = sympy.solve(f_prime, x)\n",
+        "\n",
+        "# Print the derivative and critical points\n",
+        "print(\"The derivative of the function is:\", f_prime)\n",
+        "print(\"The critical points are:\", critical_points)\n",
+        "\n",
+        "# Analyze the second derivative to determine if it's a minimum or maximum\n",
+        "f_double_prime = sympy.diff(f_prime, x)\n",
+        "print(\"The second derivative of the function is:\", f_double_prime)\n",
+        "\n",
+        "# Evaluate the second derivative at each critical point if it's a real number\n",
+        "print(\"\\nAnalyzing critical points:\")\n",
+        "found_real_critical_points = False\n",
+        "for point in critical_points:\n",
+        "    if point.is_real:\n",
+        "        found_real_critical_points = True\n",
+        "        second_deriv_value = f_double_prime.subs(x, point)\n",
+        "        print(f\"Second derivative at x = {point}: {second_deriv_value}\")\n",
+        "        if second_deriv_value > 0:\n",
+        "            print(f\"This is a local minimum at x = {point}\")\n",
+        "        elif second_deriv_value < 0:\n",
+        "            print(f\"This is a local maximum at x = {point}\")\n",
+        "        else:\n",
+        "            print(f\"The second derivative test is inconclusive at x = {point}\")\n",
+        "\n",
+        "if not found_real_critical_points:\n",
+        "    print(\"\\nNo real critical points found. The function is always increasing.\")\n",
+        "    print(\"For this cubic function with a positive leading coefficient, there is no local minimum or maximum.\")\n",
+        "    print(\"The function approaches negative infinity as x approaches negative infinity.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "JDM-z1reI9P9",
+        "outputId": "c9a96666-1977-438e-ad70-b850b47abf52"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The derivative of the function is: 6*x**2 + 4\n",
+            "The critical points are: [-sqrt(6)*I/3, sqrt(6)*I/3]\n",
+            "The second derivative of the function is: 12*x\n",
+            "\n",
+            "Analyzing critical points:\n",
+            "\n",
+            "No real critical points found. The function is always increasing.\n",
+            "For this cubic function with a positive leading coefficient, there is no local minimum or maximum.\n",
+            "The function approaches negative infinity as x approaches negative infinity.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#3 task"
+      ],
+      "metadata": {
+        "id": "UgW83WUsKk7I"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from scipy.optimize import linprog\n",
+        "\n",
+        "# Coefficients of the objective function (profit per unit)\n",
+        "# We want to maximize profit, so we minimize the negative profit\n",
+        "c = [-6, -5]\n",
+        "\n",
+        "# Coefficients of the inequality constraints (resource limitations)\n",
+        "# Milk constraint: 1A + 1B <= 5\n",
+        "# Choco constraint: 3A + 2B <= 12\n",
+        "A = [[1, 1], [3, 2]]\n",
+        "\n",
+        "# Right-hand side of the inequality constraints\n",
+        "b = [5, 12]\n",
+        "\n",
+        "# Bounds for the variables (number of units produced cannot be negative)\n",
+        "x0_bounds = (0, None) # Units of A\n",
+        "x1_bounds = (0, None) # Units of B\n",
+        "bounds = [x0_bounds, x1_bounds]\n",
+        "\n",
+        "# Solve the linear programming problem\n",
+        "result = linprog(c, A_ub=A, b_ub=b, bounds=bounds, method='highs')\n",
+        "\n",
+        "# Print the results\n",
+        "if result.success:\n",
+        "    print(\"Optimal solution found:\")\n",
+        "    print(f\"Units of A to produce: {result.x[0]:.2f}\")\n",
+        "    print(f\"Units of B to produce: {result.x[1]:.2f}\")\n",
+        "    print(f\"Maximum profit: {-result.fun:.2f}\")\n",
+        "else:\n",
+        "    print(\"Linear programming problem did not converge.\")\n",
+        "    print(result.message)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Md8FTd1ZKYmQ",
+        "outputId": "272fddb2-fe68-45e1-fff2-e55d2fce74e1"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Optimal solution found:\n",
+            "Units of A to produce: 2.00\n",
+            "Units of B to produce: 3.00\n",
+            "Maximum profit: 27.00\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
